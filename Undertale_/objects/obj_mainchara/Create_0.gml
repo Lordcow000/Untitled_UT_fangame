@@ -2,7 +2,7 @@
 // You can write your code in this editor
 xSpeed = 0;
 ySpeed = 0;
-Speed = 5;
+Speed = 3;
 facing = 0;
 
 d_idle = temp_idle_down;
@@ -15,6 +15,19 @@ u_move = temp_move_up;
 r_move = temp_move_right;
 l_move = temp_move_left;
 
+hold_right = 0;
+hold_left  = 0;
+hold_up    = 0;
+hold_down  = 0;
+
+last_dir = "down";
+
+
+
+
+
+
+
 State_Overworld = function()
 {
 /*how these two work is keyboard_check_direct is either positive (the key is being pressed(1)) or neutral (the key is not being pressed (0))
@@ -23,6 +36,63 @@ meaning in xSpeed = xDirection * Speed it would be xSpeed = -1 * Speed (5) makin
 */
 var xDirection = keyboard_check_direct(vk_right) - keyboard_check_direct(vk_left);
 var yDirection = keyboard_check_direct(vk_down) - keyboard_check_direct(vk_up);
+
+
+//these get how long a direction key has been held down for
+hold_right = keyboard_check(vk_right) ? hold_right + 1 : 0;
+hold_left  = keyboard_check(vk_left)  ? hold_left  + 1 : 0;
+hold_up    = keyboard_check(vk_up)    ? hold_up    + 1 : 0;
+hold_down  = keyboard_check(vk_down)  ? hold_down  + 1 : 0;
+
+
+
+//Check if player is moving
+if (xDirection != 0 || yDirection != 0)
+{
+	// We have to get the direction while we're moving, or else it'll default to the downward idle
+	longest_held = max(hold_right,hold_left,hold_up,hold_down);
+	if (longest_held == hold_right)  last_dir = "right";
+	if (longest_held == hold_left)   last_dir = "left";
+	if (longest_held == hold_up)     last_dir = "up";
+	if (longest_held == hold_down)   last_dir = "down";
+	
+	//Get move direction
+	switch(last_dir)
+	{
+		case "right":
+			sprite_index = r_move;
+			break;
+		case "left": 
+			sprite_index = l_move;
+			break;
+		case "up":
+			sprite_index = u_move;
+			break;
+		case "down":
+			sprite_index = d_move;
+			break;
+	}
+}
+
+else
+{
+	//Get idle direction
+	switch(last_dir)
+	{
+		case "right":
+			sprite_index = r_idle;
+			break;
+		case "left": 
+			sprite_index = l_idle;
+			break;
+		case "up":
+			sprite_index = u_idle;
+			break;
+		case "down":
+			sprite_index = d_idle;
+			break;
+	}
+}
 
 /*having xSpeed and ySpeed variables are useful as it makes sure the player's speed stays consistent throughout the step
 and can be modified
@@ -46,6 +116,12 @@ if(place_meeting(x, y + ySpeed, obj_wall))
 }
 
 y += ySpeed;
+
+
+
+
+
+
 }
 
 State = State_Overworld;
