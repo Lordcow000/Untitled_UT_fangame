@@ -22,7 +22,7 @@ Text: "It was also made in Gamemaker"
 //more stuff will be added like talking sprites
 }
 array_push(Dialog_List, Dialog);
-current_char = 0;
+Current_Char = 0;
 
 
 
