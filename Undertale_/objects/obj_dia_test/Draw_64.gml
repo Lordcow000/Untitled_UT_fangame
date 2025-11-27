@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+draw_rectangle(1, 420, 1366, 768, true);
 if(string_length(Dialog_List[0].Text) > Current_Char)
 {
 Current_Char ++;
@@ -29,5 +30,5 @@ else
 {
 draw_set_colour(c_white);
 draw_text(400, 400, string(array_length(Dialog_List)));
-draw_text_ext_transformed(200, 200, string_copy(Dialog_List[0].Text, 1, Current_Char), 20, 1366, 2, 2, 0);
+draw_text_ext_transformed(300, 440, "* " + string_copy(Dialog_List[0].Text, 1, Current_Char), 20, 1366, 2, 2, 0);
 }
