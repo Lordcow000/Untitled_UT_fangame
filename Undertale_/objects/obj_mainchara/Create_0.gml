@@ -3,6 +3,7 @@
 xSpeed = 0;
 ySpeed = 0;
 Speed = 5;
+facing = 0;
 
 d_idle = temp_idle_down;
 u_idle = temp_idle_up;
@@ -14,5 +15,28 @@ u_move = temp_move_up;
 r_move = temp_move_right;
 l_move = temp_move_left;
 
+State_Overworld = function()
+{
+var xDirection = keyboard_check_direct(vk_right) - keyboard_check_direct(vk_left);
+var yDirection = keyboard_check_direct(vk_down) - keyboard_check_direct(vk_up);
 
-facing = 0;
+xSpeed = xDirection * Speed;
+ySpeed = yDirection * Speed;
+
+if(place_meeting(x + xSpeed, y, obj_wall))
+{
+	xSpeed = 0;
+}
+
+x += xSpeed;
+
+if(place_meeting(x, y + ySpeed, obj_wall))
+{
+	ySpeed = 0;
+}
+
+y += ySpeed;
+}
+
+State = State_Overworld;
+
