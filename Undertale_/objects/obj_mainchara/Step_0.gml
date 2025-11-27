@@ -6,4 +6,19 @@ and 1 main variable called 'State' which is set to the function or 'state' the p
 */
 State();
 
-
+if keyboard_check(vk_shift) or keyboard_check(ord("X"))
+{
+	Run = true
+}
+else
+{
+	Run = false
+}
+if Run = true
+{
+	Speed = 3;
+}
+else
+{
+	Speed = 1;
+}

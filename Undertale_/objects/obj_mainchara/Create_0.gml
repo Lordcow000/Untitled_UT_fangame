@@ -1,8 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
+Run = false
 xSpeed = 0;
 ySpeed = 0;
-Speed = 3;
+Speed = 1;
 facing = 0;
 
 d_idle = temp_idle_down;
@@ -21,7 +22,6 @@ hold_up    = 0;
 hold_down  = 0;
 
 last_dir = "down";
-
 
 
 
@@ -70,7 +70,7 @@ if (xDirection != 0 || yDirection != 0)
 		case "down":
 			sprite_index = d_move;
 			break;
-	}
+	}	
 }
 
 else
@@ -124,5 +124,4 @@ y += ySpeed;
 }
 
 State = State_Overworld;
-
 
