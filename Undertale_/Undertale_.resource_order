@@ -1,5 +1,6 @@
 {
   "FolderOrderSettings":[
+    {"name":"Fonts","order":5,"path":"folders/Fonts.yy",},
     {"name":"Objects","order":2,"path":"folders/Objects.yy",},
     {"name":"Rooms","order":1,"path":"folders/Rooms.yy",},
     {"name":"Scripts","order":3,"path":"folders/Scripts.yy",},
@@ -10,6 +11,7 @@
     {"name":"Moving","order":2,"path":"folders/Sprites/Player/Moving.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"obj_dia_test","order":2,"path":"objects/obj_dia_test/obj_dia_test.yy",},
     {"name":"obj_wall","order":1,"path":"objects/obj_wall/obj_wall.yy",},
     {"name":"spr_collision","order":3,"path":"sprites/spr_collision/spr_collision.yy",},
     {"name":"temp_idle_left","order":2,"path":"sprites/temp_idle_left/temp_idle_left.yy",},

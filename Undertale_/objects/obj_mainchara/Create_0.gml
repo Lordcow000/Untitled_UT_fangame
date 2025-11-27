@@ -27,7 +27,6 @@ last_dir = "down";
 
 
 
-
 State_Overworld = function()
 {
 /*how these two work is keyboard_check_direct is either positive (the key is being pressed(1)) or neutral (the key is not being pressed (0))
