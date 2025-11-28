@@ -30,6 +30,7 @@
   "name":"Undertale_",
   "resources":[
     {"id":{"name":"Font1","path":"fonts/Font1/Font1.yy",},},
+    {"id":{"name":"obj_Cmenu","path":"objects/obj_Cmenu/obj_Cmenu.yy",},},
     {"id":{"name":"obj_dia_test","path":"objects/obj_dia_test/obj_dia_test.yy",},},
     {"id":{"name":"obj_interactcollision","path":"objects/obj_interactcollision/obj_interactcollision.yy",},},
     {"id":{"name":"obj_interaction","path":"objects/obj_interaction/obj_interaction.yy",},},
