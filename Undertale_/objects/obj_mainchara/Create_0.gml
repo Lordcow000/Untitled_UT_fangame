@@ -1,11 +1,11 @@
-/// @description Insert description here
-// You can write your code in this editor
+Health = 20;
 ready = true
 Run = false
 xSpeed = 0;
 ySpeed = 0;
 Speed = 1;
 facing = 0;
+Selection = 1;
 
 d_idle = temp_idle_down;
 u_idle = temp_idle_up;
@@ -24,7 +24,90 @@ hold_down  = 0;
 
 last_dir = "down";
 
+Inventory_Index = 0;
+Menu_Index = 0;
 
+// move this code later
+global.Game_Data = 
+{
+Inventory_1: []
+}
+
+Item = 
+{
+Name: "Lime",
+Type: "Food",
+Value: 10
+}
+
+array_push(global.Game_Data.Inventory_1, Item);
+
+MenuSelect = ["Item", "Stats", "Cellphone"]
+
+State_Inventory = function()
+{
+var Down = keyboard_check_pressed(vk_down);
+var Up = keyboard_check_pressed(vk_up);
+var _inventory = global.Game_Data;
+if(keyboard_check_pressed(ord("C"))) or (keyboard_check_pressed(vk_control))
+{
+State = State_Overworld;
+}
+if(keyboard_check_pressed(ord("X"))) or (keyboard_check_pressed(vk_shift))
+{
+State = State_Menu
+}
+
+if(Down)
+{
+
+Inventory_Index ++;
+if(Inventory_Index > array_length(_inventory) - 1)
+{
+Inventory_Index = 0;
+}
+}
+
+
+if(Up)
+{
+Inventory_Index --;
+if(Inventory_Index < 0)
+{
+Inventory_Index = array_length(_inventory) - 1;
+}
+}
+
+}
+State_Menu = function()
+{
+var Down = keyboard_check_pressed(vk_down);
+var Up = keyboard_check_pressed(vk_up);
+if(keyboard_check_pressed(ord("C"))) or (keyboard_check_pressed(ord("X"))) or (keyboard_check_pressed(vk_shift)) or (keyboard_check_pressed(vk_control))
+{
+	State = State_Overworld
+}
+if((keyboard_check_pressed(ord("Z"))) or (keyboard_check_pressed(vk_enter))) and Menu_Index = 0
+{
+	State = State_Inventory
+}
+if(Down)
+{
+	Menu_Index ++
+	if(Menu_Index > array_length(MenuSelect) - 1)
+	{
+		Menu_Index = 0
+	}
+}
+if(Up)
+{
+	Menu_Index --
+	if(Menu_Index < 0)
+	{
+		Menu_Index = array_length(MenuSelect) - 1
+	}
+}
+}
 
 
 
@@ -114,7 +197,7 @@ var interactready = function()
 {
 	ready = true
 }
-if (keyboard_check_pressed(ord("Z")) and ready = true)
+if ((keyboard_check_pressed(ord("Z")) or (keyboard_check_pressed(vk_enter))) and ready = true)
 {
 	switch(last_dir)
 	{
@@ -143,6 +226,10 @@ and can be modified
 xSpeed = xDirection * Speed;
 ySpeed = yDirection * Speed;
 
+if(keyboard_check_pressed(ord("C"))) or (keyboard_check_pressed(vk_control))
+{
+State = State_Menu;
+}
 
 //call these variables (or at least x += xSpeed and y += ySpeed) last or after any speed checks are made.
 

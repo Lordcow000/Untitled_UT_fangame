@@ -30,7 +30,6 @@
   "name":"Undertale_",
   "resources":[
     {"id":{"name":"Font1","path":"fonts/Font1/Font1.yy",},},
-    {"id":{"name":"obj_Cmenu","path":"objects/obj_Cmenu/obj_Cmenu.yy",},},
     {"id":{"name":"obj_dia_test","path":"objects/obj_dia_test/obj_dia_test.yy",},},
     {"id":{"name":"obj_interactcollision","path":"objects/obj_interactcollision/obj_interactcollision.yy",},},
     {"id":{"name":"obj_interaction","path":"objects/obj_interaction/obj_interaction.yy",},},
@@ -41,6 +40,7 @@
     {"id":{"name":"scr_text_counter_overworld","path":"scripts/scr_text_counter_overworld/scr_text_counter_overworld.yy",},},
     {"id":{"name":"bg_room0","path":"sprites/bg_room0/bg_room0.yy",},},
     {"id":{"name":"spr_collision","path":"sprites/spr_collision/spr_collision.yy",},},
+    {"id":{"name":"spr_heart","path":"sprites/spr_heart/spr_heart.yy",},},
     {"id":{"name":"spr_interactcollision","path":"sprites/spr_interactcollision/spr_interactcollision.yy",},},
     {"id":{"name":"spr_interaction","path":"sprites/spr_interaction/spr_interaction.yy",},},
     {"id":{"name":"spr_text_box","path":"sprites/spr_text_box/spr_text_box.yy",},},
