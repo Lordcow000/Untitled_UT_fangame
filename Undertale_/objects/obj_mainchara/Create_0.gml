@@ -1,10 +1,7 @@
-Health = 20;
-global.MaxHealth = 20;
-ready = true;
-Run = false;
 /// @description Insert description here
 // You can write your code in this editor
 Health = 20;
+global.MaxHealth = 20;
 ready = true
 Run = false
 xSpeed = 0;
@@ -41,6 +38,7 @@ hold_down  = 0;
 last_dir = "down";
 
 Inventory_Index = 0;
+
 Menu_Index = 0;
 
 // move this code later
@@ -58,7 +56,6 @@ Description: "A green fruit, really sour.#Heals 10 HP"
 }
 
 array_push(global.Game_Data.Inventory_1, Item);
-
 MenuSelect = ["Item", "Stats", "Cellphone"]
 
 State_Stat = function()
@@ -77,7 +74,7 @@ State_Inventory = function()
 {
 var Down = keyboard_check_pressed(vk_down);
 var Up = keyboard_check_pressed(vk_up);
-var _inventory = global.Game_Data;
+var _inventory = global.Game_Data.inventory_1;
 if(keyboard_check_pressed(ord("C"))) or (keyboard_check_pressed(vk_control))
 {
 State = State_Overworld;
@@ -262,6 +259,11 @@ and can be modified
 */
 xSpeed = xDirection * Speed;
 ySpeed = yDirection * Speed;
+
+if(keyboard_check_pressed(ord("C"))) or (keyboard_check_pressed(vk_control))
+{
+State = State_Menu;
+}
 
 //call these variables (or at least x += xSpeed and y += ySpeed) last or after any speed checks are made.
 
