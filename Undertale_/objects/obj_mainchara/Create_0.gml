@@ -2,6 +2,11 @@ Health = 20;
 global.MaxHealth = 20;
 ready = true;
 Run = false;
+/// @description Insert description here
+// You can write your code in this editor
+Health = 20;
+ready = true
+Run = false
 xSpeed = 0;
 ySpeed = 0;
 Speed = 1;
@@ -81,18 +86,14 @@ if(keyboard_check_pressed(ord("X"))) or (keyboard_check_pressed(vk_shift))
 {
 State = State_Menu
 }
-
 if(Down)
 {
-
 Inventory_Index ++;
 if(Inventory_Index > array_length(_inventory) - 1)
 {
 Inventory_Index = 0;
 }
 }
-
-
 if(Up)
 {
 Inventory_Index --;
@@ -145,6 +146,10 @@ if(Up)
 
 State_Overworld = function()
 {
+	if(keyboard_check_pressed(ord("C"))) or (keyboard_check_pressed(vk_control))
+{
+State = State_Menu;
+}
 /*how these two work is keyboard_check is either positive (the key is being pressed(1)) or neutral (the key is not being pressed (0))
 it then subtracts these values to get which direction you are moving. For example, if left is being pressed but not right it would return -1,
 meaning in xSpeed = xDirection * Speed it would be xSpeed = -1 * Speed (5) making the player move left.
@@ -258,11 +263,6 @@ and can be modified
 xSpeed = xDirection * Speed;
 ySpeed = yDirection * Speed;
 
-if(keyboard_check_pressed(ord("C"))) or (keyboard_check_pressed(vk_control))
-{
-State = State_Menu;
-}
-
 //call these variables (or at least x += xSpeed and y += ySpeed) last or after any speed checks are made.
 
 if(place_meeting(x + xSpeed, y, obj_wall))
@@ -292,3 +292,7 @@ State_Talking = function()
 {
 
 }
+
+
+
+
