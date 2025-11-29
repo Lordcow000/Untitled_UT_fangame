@@ -74,7 +74,7 @@ State_Inventory = function()
 {
 var Down = keyboard_check_pressed(vk_down);
 var Up = keyboard_check_pressed(vk_up);
-var _inventory = global.Game_Data.inventory_1;
+var _inventory = global.Game_Data.Inventory_1;
 if(keyboard_check_pressed(ord("C"))) or (keyboard_check_pressed(vk_control))
 {
 State = State_Overworld;
