@@ -9,8 +9,9 @@ Enemy_Count = []
 Dialog = "You remember you're genocides."
 Current_Char = 0;
 Quicktime_Pos = 0;
-Attack_Index = 0;
-Mercy_Index = 0
+Enemy_select_Index = 0;
+Act_Index = 0;
+Mercy_Index = 0;
 Mercy_Select = ["SPARE", "FLEE"]
 
 State_Selec = function()
@@ -38,8 +39,11 @@ State_Selec = function()
 		switch(Selec_Index)
 		{
 			case 0:
-			State = State_Fight
+			State = State_Fight;
 			break
+			
+			case 1:
+			State = State_Act_Enemy_Select;
 		}
 	}
 	switch(Selec_Index)
@@ -66,16 +70,34 @@ State_Selec = function()
 State_Quicktime = function()
 {
 	var z = (keyboard_check_pressed(ord("Z")) or keyboard_check_pressed(vk_enter));
+	var center_x = 319;
+	_accuracy_multi=1
 	
 	if(z)
 	{
 		
-		var _damage_mod = 288 / abs(288 - Quicktime_Pos);
-			var enemy = Enemy_Count[Attack_Index]; //Get the enemy
-		enemy._health -= global.Attack; // we'll switch this out for proper attacks eventually
+		
+		var _distance_from_center = abs(center_x - Quicktime_Pos); 
+		if (_distance_from_center <= 12)
+		{
+			_accuracy_multi = 2.2
+		}
+		else
+		{
+			_accuracy_multi = (1-_distance_from_center/(view_wport/2))*2  //287 is half the width of spr_battle_quicktime
+		}
+		
+		var enemy = Enemy_Count[Enemy_select_Index];
+		
+		var _damage = ceil(round(global.Attack - enemy.def + random(2)) * _accuracy_multi)
+		
+		show_debug_message(_damage);
+		
+		enemy._health -= _damage; 
+		
 		if (enemy._health <= 0)
 		{
-			array_delete(Enemy_Count,Attack_Index,1); // removes enemy if dead
+			array_delete(Enemy_Count,Enemy_select_Index,1); // removes enemy if dead
 		}
 		show_debug_message(enemy);
 		State = State_Selec;
@@ -98,18 +120,18 @@ State_Fight = function()
 	
 	if(down)
 	{
-		Attack_Index ++
-		if(Attack_Index > array_length(Enemy_Count) - 1)
+		Enemy_select_Index ++
+		if(Enemy_select_Index > array_length(Enemy_Count) - 1)
 		{
-			Attack_Index = 0;
+			Enemy_select_Index = 0;
 		}
 	}
 	if(up)
 	{
-		Attack_Index --;
-		if (Attack_Index < 0)
+		Enemy_select_Index --;
+		if (Enemy_select_Index < 0)
 		{
-			Attack_Index = array_length(Enemy_Count) - 1;
+			Enemy_select_Index = array_length(Enemy_Count) - 1;
 		}
 	}	
 	if(z)
@@ -118,11 +140,11 @@ State_Fight = function()
 		State = State_Quicktime;
 		Quicktime_Pos = 0;
 		/*
-		var enemy = Enemy_Count[Attack_Index]; //Get the enemy
+		var enemy = Enemy_Count[Enemy_select_Index]; //Get the enemy
 		enemy._health -= global.Attack; // we'll switch this out for proper attacks eventually
 		if (enemy._health <= 0)
 		{
-			array_delete(Enemy_Count,Attack_Index,1); // removes enemy if dead
+			array_delete(Enemy_Count,Enemy_select_Index,1); // removes enemy if dead
 		}
 		show_debug_message(enemy);
 		State = State_Selec;
@@ -135,6 +157,76 @@ State_Fight = function()
 	}
 
 }
+
+State_Act_Enemy_Select = function()
+{
+	var up = keyboard_check_pressed(vk_up);
+	var down = keyboard_check_pressed(vk_down);
+	var z = (keyboard_check_pressed(ord("Z")) or keyboard_check_pressed(vk_enter));
+	var _x = (keyboard_check_pressed(ord("X")) or keyboard_check_pressed(vk_shift));
+	
+	if(down)
+	{
+		Enemy_select_Index ++
+		if(Enemy_select_Index > array_length(Enemy_Count) - 1)
+		{
+			Enemy_select_Index = 0;
+		}
+	}
+	if(up)
+	{
+		Enemy_select_Index --;
+		if (Enemy_select_Index < 0)
+		{
+			Enemy_select_Index = array_length(Enemy_Count) - 1;
+		}
+	}	
+	if(z)
+	{
+		State = State_Act_Select;
+	}
+	if(_x)
+	{
+		State = State_Selec;			
+	}
+}
+
+State_Act_Select = function()
+{
+	var up = keyboard_check_pressed(vk_up);
+	var down = keyboard_check_pressed(vk_down);
+	var z = (keyboard_check_pressed(ord("Z")) or keyboard_check_pressed(vk_enter));
+	var _x = (keyboard_check_pressed(ord("X")) or keyboard_check_pressed(vk_shift));
+	
+	var enemy = Enemy_Count[Enemy_select_Index];
+	
+	if(down)
+	{
+		Act_Index ++
+		if(Act_Index > array_length(enemy.act_actions) - 1)
+		{
+			Act_Index = 0;
+		}
+	}
+	if(up)
+	{
+		Act_Index --;
+		if (Act_Index < 0)
+		{
+			Act_Index = array_length(enemy.act_actions) - 1;
+		}
+	}	
+	if(z)
+	{
+		//Nothing yet
+	}
+	if(_x)
+	{
+		State = State_Act_Enemy_Select;			
+	}
+	
+}
+
 State_Mercy = function()
 {
 	var up = keyboard_check_pressed(vk_up)
@@ -158,4 +250,5 @@ State_Mercy = function()
 			
 		
 }
+
 State = State_Selec

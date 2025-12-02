@@ -48,6 +48,7 @@
     {"id":{"name":"spr_battle_attack_bar","path":"sprites/spr_battle_attack_bar/spr_battle_attack_bar.yy",},},
     {"id":{"name":"spr_battle_quicktime","path":"sprites/spr_battle_quicktime/spr_battle_quicktime.yy",},},
     {"id":{"name":"spr_collision","path":"sprites/spr_collision/spr_collision.yy",},},
+    {"id":{"name":"spr_debug_pixel","path":"sprites/spr_debug_pixel/spr_debug_pixel.yy",},},
     {"id":{"name":"spr_encounter_room","path":"sprites/spr_encounter_room/spr_encounter_room.yy",},},
     {"id":{"name":"spr_encounter","path":"sprites/spr_encounter/spr_encounter.yy",},},
     {"id":{"name":"spr_fight","path":"sprites/spr_fight/spr_fight.yy",},},

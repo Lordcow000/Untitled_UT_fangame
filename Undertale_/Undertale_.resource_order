@@ -22,6 +22,7 @@
     {"name":"spr_battle_attack_bar","order":16,"path":"sprites/spr_battle_attack_bar/spr_battle_attack_bar.yy",},
     {"name":"spr_battle_quicktime","order":15,"path":"sprites/spr_battle_quicktime/spr_battle_quicktime.yy",},
     {"name":"spr_collision","order":2,"path":"sprites/spr_collision/spr_collision.yy",},
+    {"name":"spr_debug_pixel","order":17,"path":"sprites/spr_debug_pixel/spr_debug_pixel.yy",},
     {"name":"spr_encounter_room","order":1,"path":"sprites/spr_encounter_room/spr_encounter_room.yy",},
     {"name":"spr_encounter","order":7,"path":"sprites/spr_encounter/spr_encounter.yy",},
     {"name":"spr_fight","order":1,"path":"sprites/spr_fight/spr_fight.yy",},
