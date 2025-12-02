@@ -6,6 +6,9 @@ ATK = global.Attack + global.WeaponEquipped.Attack
 Selec_Index = 0;
 Selec = ["FIGHT", "ACT", "ITEM", "MERCY"]
 Enemy_Count = []
+Dialog = "You remember you're genocides."
+Current_Char = 0;
+Quicktime_Pos = 0;
 Attack_Index = 0;
 Mercy_Index = 0
 Mercy_Select = ["SPARE", "FLEE"]
@@ -60,6 +63,32 @@ State_Selec = function()
 	}
 }
 
+State_Quicktime = function()
+{
+	var z = (keyboard_check_pressed(ord("Z")) or keyboard_check_pressed(vk_enter));
+	
+	if(z)
+	{
+		
+		var _damage_mod = 288 / abs(288 - Quicktime_Pos);
+			var enemy = Enemy_Count[Attack_Index]; //Get the enemy
+		enemy._health -= global.Attack; // we'll switch this out for proper attacks eventually
+		if (enemy._health <= 0)
+		{
+			array_delete(Enemy_Count,Attack_Index,1); // removes enemy if dead
+		}
+		show_debug_message(enemy);
+		State = State_Selec;
+	}
+	
+	Quicktime_Pos += 4;
+	
+	if(Quicktime_Pos >= 576)
+	{
+	State = State_Selec;
+	}
+}
+
 State_Fight = function()
 {
 	var up = keyboard_check_pressed(vk_up);
@@ -85,6 +114,10 @@ State_Fight = function()
 	}	
 	if(z)
 	{
+	
+		State = State_Quicktime;
+		Quicktime_Pos = 0;
+		/*
 		var enemy = Enemy_Count[Attack_Index]; //Get the enemy
 		enemy._health -= global.Attack; // we'll switch this out for proper attacks eventually
 		if (enemy._health <= 0)
@@ -93,6 +126,7 @@ State_Fight = function()
 		}
 		show_debug_message(enemy);
 		State = State_Selec;
+		*/
 		
 	}
 	if(_x)

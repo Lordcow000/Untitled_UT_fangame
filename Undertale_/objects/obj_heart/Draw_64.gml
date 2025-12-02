@@ -29,7 +29,16 @@ switch(Selec_Index)
 	}
 if State = State_Selec
 {
-	draw_text_transformed(52, 281, string_hash_to_newline("* You feel like you're not gonna get #copyrighted."), 2, 2, 0)
+draw_set_font(Font1);
+if(string_length(Dialog) > Current_Char)
+{
+Current_Char ++;
+}
+
+draw_set_colour(c_white);
+draw_text_ext_transformed(52, 281, "* " + string_copy(Dialog, 1, Current_Char), 20, 348, 2, 2, 0);
+
+	//draw_text_transformed(52, 281, string_hash_to_newline("* You feel like you're not gonna get #copyrighted."), 2, 2, 0)
 }
 
 if State = State_Fight
@@ -50,4 +59,10 @@ if State = State_Fight
 	})
 		
 	
+}
+
+if(State = State_Quicktime)
+{
+draw_sprite(spr_battle_quicktime, 0, 32, 250);
+draw_sprite(spr_battle_attack_bar, 0, 16 + Quicktime_Pos, 265);
 }
