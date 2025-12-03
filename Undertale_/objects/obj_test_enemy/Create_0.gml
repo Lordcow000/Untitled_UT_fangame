@@ -7,6 +7,7 @@ test_enemy =
 	spareable: false,
 	act_actions: [{Name: "Argue", ID: "Sans_Argue"}, {Name: "Talk", ID: "Sans_Talk"}],
 	dialog: ["*omnomnomnomnom", "Breakin it down", "Please stop making fanart of me"],
-	dialog_type: "Random"
+	dialog_type: "Random",
+	dialog_next: "None",
 }
 array_push(obj_heart.Enemy_Count, test_enemy)

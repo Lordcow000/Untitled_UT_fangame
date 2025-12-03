@@ -218,6 +218,23 @@ State_Act_Select = function()
 	}	
 	if(z)
 	{
+	Act_Value = enemy.act_actions[Act_Index];
+	State = State_Act_Consequence;
+	if(Act_Value.ID = "Sans_Talk")
+{
+Dialog = "You talk to Sans. He understands how array_foreach works now.";
+Current_Char = 0;
+enemy.dialog_next = "Ah okay now I understand now";
+enemy.spareable = true;
+}
+	if(Act_Value.ID = "Sans_Argue")
+{
+Dialog = "You argue with Sans, yelling at him for 'befriending' your mother last night.";
+Current_Char = 0;
+enemy.dialog_next = "Human, I remember I'm you're dad.";
+enemy.spareable = false;
+}
+	
 		//Nothing yet
 	}
 	if(_x)
@@ -225,6 +242,14 @@ State_Act_Select = function()
 		State = State_Act_Enemy_Select;			
 	}
 	
+}
+
+State_Act_Consequence = function()
+{
+if(Act_Value.ID = "Sans_Talk")
+{
+
+}
 }
 
 State_Mercy = function()
