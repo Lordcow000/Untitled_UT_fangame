@@ -4,5 +4,17 @@
 /*for any programmers unfamiliar with state machines basically I have multiple functions (or 'states') that the player can be in
 and 1 main variable called 'State' which is set to the function or 'state' the player is in, then called every step. 
 */
+
+if(room = encounter_room)
+{
+State = State_Battle;
+}
+else if(room != encounter_room and State = State_Battle)
+{
+State = State_Overworld;
+x = global.Game_Data.PlayerStartxPos;
+y = global.Game_Data.PlayerStartyPos;
+}
+
 State();
 

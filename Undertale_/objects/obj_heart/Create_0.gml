@@ -12,12 +12,10 @@ Quicktime_Pos = 0;
 Enemy_select_Index = 0;
 Act_Index = 0;
 Mercy_Index = 0;
-Mercy_Select = ["SPARE", "FLEE"]
-ActSelected = false
+Mercy_Select = ["Spare", "Flee"]
 
 State_Selec = function()
 {
-	ActSelected = false
 	var right = keyboard_check_pressed(vk_right)
 	var left = keyboard_check_pressed(vk_left)
 	if(right)
@@ -46,6 +44,9 @@ State_Selec = function()
 			
 			case 1:
 			State = State_Act_Enemy_Select;
+			
+						case 3:
+			State = State_Mercy;
 		}
 	}
 	switch(Selec_Index)
@@ -104,10 +105,6 @@ State_Quicktime = function()
 		show_debug_message(enemy);
 		State = State_Selec;
 	}
-	if array_length(Enemy_Count) < 1
-	{
-		room_goto(global.EchoLocation.Room)
-	}
 	
 	Quicktime_Pos += 4;
 	
@@ -115,8 +112,6 @@ State_Quicktime = function()
 	{
 	State = State_Selec;
 	}
-	x = -20
-	y = 65
 }
 
 State_Fight = function()
@@ -163,20 +158,11 @@ State_Fight = function()
 	{
 		State = State_Selec;			
 	}
-	array_foreach(Enemy_Count,function(enemy, _index)
-	{
-		if (Enemy_select_Index == _index)
-		{
-			x = 52
-			y = 275 + (_index*30)
-		}
-	})
 
 }
 
 State_Act_Enemy_Select = function()
 {
-	ActSelected = false
 	var up = keyboard_check_pressed(vk_up);
 	var down = keyboard_check_pressed(vk_down);
 	var z = (keyboard_check_pressed(ord("Z")) or keyboard_check_pressed(vk_enter));
@@ -206,14 +192,6 @@ State_Act_Enemy_Select = function()
 	{
 		State = State_Selec;			
 	}
-		array_foreach(Enemy_Count,function(enemy, _index) // Loops through each enemy
-	{
-		if (Enemy_select_Index == _index)
-		{
-			x = 52
-			y = 275 + (_index*30)
-		}
-	})
 }
 
 State_Act_Select = function()
@@ -261,27 +239,12 @@ enemy.spareable = false;
 }
 	
 		//Nothing yet
-		//Something yet
-		ActSelected = true
 	}
 	if(_x)
 	{
 		State = State_Act_Enemy_Select;			
 	}
-		array_foreach(enemy.act_actions,function(act, _index) // Loops through each enemy
-	{
-
-		if (Act_Index == _index) and ActSelected = false
-		{
-			x = 52
-			y = 275 + (_index*30)
-		}
-		if ActSelected = true
-		{
-			x = -20
-			y = 65
-		}
-	})
+	
 }
 
 State_Act_Consequence = function()
@@ -294,6 +257,9 @@ if(Act_Value.ID = "Sans_Talk")
 
 State_Mercy = function()
 {
+	
+	var z = (keyboard_check_pressed(ord("Z")) or keyboard_check_pressed(vk_enter));
+	var _x = (keyboard_check_pressed(ord("X")) or keyboard_check_pressed(vk_shift));
 	var up = keyboard_check_pressed(vk_up)
 	var down = keyboard_check_pressed(vk_down)
 	if(down)
@@ -313,6 +279,20 @@ State_Mercy = function()
 		}
 	}
 			
+	if(_x)
+	{
+	State = State_Selec;
+	}
+	
+	if(z)
+	{
+	if(Mercy_Select[Mercy_Index] = "Flee")
+	{
+	room_goto(global.Game_Data.Previ_Room);
+	obj_mainchara.x = global.Game_Data.PlayerStartxPos;
+	obj_mainchara.y = global.Game_Data.PlayerStartyPos;
+	}
+	}
 		
 }
 

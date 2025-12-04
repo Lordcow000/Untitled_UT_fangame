@@ -1,6 +1,5 @@
 /// @description Insert description here
 // You can write your code in this editor
-encounter = false
 global.Health = 10;
 global.MaxHealth = 20;
 ready = true
@@ -10,6 +9,8 @@ ySpeed = 0;
 Speed = 3;
 facing = 0;
 Selection = 1;
+Encounter_Chance = 0;
+Encounter_Chance_Counter = 0;
 global.LOVE = 1;
 global.Attack = 10;
 global.Defense = 0;
@@ -28,15 +29,6 @@ global.ArmorEquipped =
 {
 	Name: "Nothing",
 	Defense: 0
-}
-if encounter = false
-{
-global.EchoLocation =
-{
-	Room: room,
-	X: obj_mainchara.x,
-	Y: obj_mainchara.y,
-}
 }
 
 d_idle = temp_idle_down;
@@ -61,9 +53,10 @@ Inventory_Index = 0;
 Menu_Index = 0;
 
 // move this code later
-global.Game_Data = 
+
+State_Battle = function()
 {
-Inventory_1: []
+
 }
 
 Item = 
@@ -107,7 +100,19 @@ State = State_Menu
 }
 }
 
-
+State_Battle_Start = function()
+{
+Encounter_Chance ++;
+if(Encounter_Chance >= 60)
+{
+	Encounter_Chance = 0;
+	encounter = true;
+global.Game_Data.PlayerStartxPos = x;
+global.Game_Data.PlayerStartyPos = y;
+global.Game_Data.Previ_Room = room;
+room_goto(encounter_room)
+}
+}
 
 State_Inventory = function()
 {
@@ -459,6 +464,38 @@ if(place_meeting(x, y + ySpeed, obj_wall))
 
 y += ySpeed;
 
+if(xSpeed != 0 or ySpeed != 0)
+{
+	Encounter_Chance_Counter ++;
+	if(Encounter_Chance_Counter >= 300)
+	{
+	Encounter_Chance ++;
+	var _rand = irandom_range(0, 100)
+	{
+	if(_rand < Encounter_Chance)
+	{
+	switch(last_dir)
+{
+		case "right":
+			sprite_index = r_idle;
+			break;
+		case "left": 
+			sprite_index = l_idle;
+			break;
+		case "up":
+			sprite_index = u_idle;
+			break;
+		case "down":
+			sprite_index = d_idle;
+			break;
+	}
+State = State_Battle_Start;
+Encounter_Chance = 0;
+Encounter_Chance_Counter = 0;
+	}
+	}
+	}
+}
 
 
 
