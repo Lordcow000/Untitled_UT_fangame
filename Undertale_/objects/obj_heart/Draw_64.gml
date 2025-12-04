@@ -100,17 +100,9 @@ if State = State_Act_Select
 {
 
 	var enemy = Enemy_Count[Enemy_select_Index];
-	if ActSelected = false
-	{
 		array_foreach(enemy.act_actions,function(act, _index) // Loops through each enemy
 		{
 			draw_text_transformed(90, 265+(_index*30), "* "+act.Name, 2, 2, 0);
-		})
-	}
-	else
-	{
-		draw_text_transformed(52, 265, "* "+string_hash_to_newline(enemy.act_actions[Act_Index].Description), 2, 2, 0)
-	}
-		
+		})	
 	
 }
