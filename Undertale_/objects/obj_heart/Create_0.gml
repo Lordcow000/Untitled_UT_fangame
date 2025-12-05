@@ -44,9 +44,11 @@ State_Selec = function()
 			
 			case 1:
 			State = State_Act_Enemy_Select;
+			break
 			
-						case 3:
+			case 3:
 			State = State_Mercy;
+			break
 		}
 	}
 	switch(Selec_Index)
