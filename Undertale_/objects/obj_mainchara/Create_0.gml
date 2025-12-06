@@ -1,7 +1,5 @@
 /// @description Insert description here
 // You can write your code in this editor
-global.Health = 10;
-global.MaxHealth = 20;
 ready = true
 Run = false
 xSpeed = 0;
@@ -11,25 +9,9 @@ facing = 0;
 Selection = 1;
 Encounter_Chance = 0;
 Encounter_Chance_Counter = 0;
-global.LOVE = 1;
-global.Attack = 10;
-global.Defense = 0;
-global.EXP = 0;
-NEXTLV = 10;
 Current_Item = {};
 Item_Actions = ["USE", "INFO", "DROP"];
 Item_Action_Index = 0;
-global.Money = 0;
-global.WeaponEquipped =
-{
-	Name: "Fists",
-	Attack: 0
-}
-global.ArmorEquipped =
-{
-	Name: "Nothing",
-	Defense: 0
-}
 
 d_idle = temp_idle_down;
 u_idle = temp_idle_up;
