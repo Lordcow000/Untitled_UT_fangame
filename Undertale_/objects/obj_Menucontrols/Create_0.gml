@@ -1,3 +1,4 @@
+MenuIndex = 0
 reset = function()
 {
 global.Health = 10;
@@ -20,3 +21,4 @@ global.ArmorEquipped =
 global.NEXTLV = 10;
 room_goto(Room0)
 }
+	
