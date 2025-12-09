@@ -10,18 +10,17 @@ test_enemy =
 	dialog_type: "Random",
 	dialog_next: "None",
 	//this was supposed to be an array, but the game crashed
-	Attacks:
+	Attacks: [
 	{
-		Testbullet:
+		Name: "EnemyTest",
+		Duration: 10,
+		BattleBoxSize: {Ytop: 201, Xleft: 225, Ybottom: 389, Xright: 413},
+		bullet: spr_testbone,
+		pattern: function()
 		{
-			Duration: 10,
-			BattleBoxSize: {Ytop: 201, Xleft: 225, Ybottom: 389, Xright: 413},
-			bullet: spr_testbone,
-			pattern: function()
-			{
-				//nothing :\
-			}
+			//idk
 		}
 	}
+	]
 }
 array_push(obj_heart.Enemy_Count, test_enemy)
