@@ -15,10 +15,9 @@ test_enemy =
 		Name: "EnemyTest",
 		Duration: 10,
 		BattleBoxSize: {Ytop: 201, Xleft: 225, Ybottom: 389, Xright: 413},
-		bullet: spr_testbone,
 		pattern: function()
 		{
-			//idk
+			
 		}
 	}
 	]

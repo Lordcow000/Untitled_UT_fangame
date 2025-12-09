@@ -11,6 +11,7 @@
     {"name":"Test Enemy","order":8,"path":"folders/Sprites/Test Enemy.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"obj_Attack","order":9,"path":"objects/obj_Attack/obj_Attack.yy",},
     {"name":"obj_dia_test","order":2,"path":"objects/obj_dia_test/obj_dia_test.yy",},
     {"name":"obj_encounter","order":3,"path":"objects/obj_encounter/obj_encounter.yy",},
     {"name":"obj_heart","order":6,"path":"objects/obj_heart/obj_heart.yy",},

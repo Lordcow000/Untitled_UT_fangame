@@ -32,6 +32,7 @@
   "name":"Undertale_",
   "resources":[
     {"id":{"name":"Font1","path":"fonts/Font1/Font1.yy",},},
+    {"id":{"name":"obj_Attack","path":"objects/obj_Attack/obj_Attack.yy",},},
     {"id":{"name":"obj_dia_test","path":"objects/obj_dia_test/obj_dia_test.yy",},},
     {"id":{"name":"obj_encounter","path":"objects/obj_encounter/obj_encounter.yy",},},
     {"id":{"name":"obj_heart","path":"objects/obj_heart/obj_heart.yy",},},
