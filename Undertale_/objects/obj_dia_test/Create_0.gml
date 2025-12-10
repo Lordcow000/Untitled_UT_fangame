@@ -6,25 +6,9 @@
 Dialog_List = [];
 Player_Next_State = obj_mainchara.State_Overworld;
 Has_Sprite = 0;
-Dialog = 
-{
-Text: "Hyper light drifter is peak"
-//more stuff will be added like talking sprites
-}
-array_push(Dialog_List, Dialog);
-Dialog = 
-{
-Text: "You should play it"
-//more stuff will be added like talking sprites
-}
-array_push(Dialog_List, Dialog);
-Dialog = 
-{
-Text: "It was also made in Gamemaker"
-//more stuff will be added like talking sprites
-}
-array_push(Dialog_List, Dialog);
+
+just_advanced = false;
 Current_Char = 0;
 
 
-text_speed = 2; //how fast the text gets typed
+text_speed = 1; //how fast the text gets typed

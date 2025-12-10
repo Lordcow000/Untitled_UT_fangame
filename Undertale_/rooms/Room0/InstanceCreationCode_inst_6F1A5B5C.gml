@@ -5,21 +5,23 @@
 //Any '#'s indicate a newline
 image_blend = c_blue;
 Dialog_List = [];
+
 Dialog = 
 {
-Text: "Hyper light drifter is peak and you should play it it's really fun"
+Text: "* OMG this looks beautiful"
 //more stuff will be added like talking sprites
 }
 array_push(Dialog_List, Dialog);
 Dialog = 
 {
-Text: "You should play it"
+Text: "* Stay on the path. This text is really long like really really really long"
 //more stuff will be added like talking sprites
 }
 array_push(Dialog_List, Dialog);
 Dialog = 
 {
-Text: "It was also made in Gamemaker"
+Text: "* It was also made in Gamemaker"
 //more stuff will be added like talking sprites
 }
 array_push(Dialog_List, Dialog);
+

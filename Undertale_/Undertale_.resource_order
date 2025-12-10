@@ -11,7 +11,9 @@
     {"name":"Test Enemy","order":8,"path":"folders/Sprites/Test Enemy.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"Font1","order":1,"path":"fonts/Font1/Font1.yy",},
     {"name":"obj_Attack","order":9,"path":"objects/obj_Attack/obj_Attack.yy",},
+    {"name":"obj_dia_test_new","order":10,"path":"objects/obj_dia_test_new/obj_dia_test_new.yy",},
     {"name":"obj_dia_test","order":2,"path":"objects/obj_dia_test/obj_dia_test.yy",},
     {"name":"obj_encounter","order":3,"path":"objects/obj_encounter/obj_encounter.yy",},
     {"name":"obj_heart","order":6,"path":"objects/obj_heart/obj_heart.yy",},
@@ -23,6 +25,7 @@
     {"name":"encounter_room","order":1,"path":"rooms/encounter_room/encounter_room.yy",},
     {"name":"Room3","order":2,"path":"rooms/Room3/Room3.yy",},
     {"name":"main_data","order":1,"path":"scripts/main_data/main_data.yy",},
+    {"name":"string_wrap","order":2,"path":"scripts/string_wrap/string_wrap.yy",},
     {"name":"spr_battle_attack_bar","order":11,"path":"sprites/spr_battle_attack_bar/spr_battle_attack_bar.yy",},
     {"name":"spr_battle_quicktime","order":10,"path":"sprites/spr_battle_quicktime/spr_battle_quicktime.yy",},
     {"name":"spr_collision","order":2,"path":"sprites/spr_collision/spr_collision.yy",},

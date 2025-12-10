@@ -414,7 +414,7 @@ if ((keyboard_check_pressed(ord("Z")) or (keyboard_check_pressed(vk_enter))) and
 		break
 	}
 	ready = false
-	var cooldowninteract = time_source_create(time_source_global, 0.5, time_source_units_seconds, interactready)
+	var cooldowninteract = time_source_create(time_source_global, 0.1, time_source_units_seconds, interactready)
 	time_source_start(cooldowninteract)
 
 }
