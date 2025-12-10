@@ -4,6 +4,7 @@ if keyboard_check_pressed(ord("Z"))
 	{
 		case 1:
 		reset()
+		break
 	}
 }
 if keyboard_check_pressed(vk_down)
