@@ -1,34 +1,50 @@
-draw_rectangle_colour(32, 250, 606, 389, c_black, c_black, c_black, c_black, false)
-draw_rectangle_colour(32, 250, 606, 389, c_white, c_white, c_white, c_white, true)
+//draw_rectangle_colour(32, 250, 606, 389, c_black, c_black, c_black, c_black, false)
+//draw_rectangle_colour(32, 250, 606, 389, c_white, c_white, c_white, c_white, true)
+
+
+draw_set_color(c_white);
+draw_rectangle(32, 250, 607, 390, false);
+
+draw_set_color(c_black);
+draw_rectangle(32 + 5, 250 + 5, 607 - 5, 390 - 5, false);
+draw_set_color(c_white);
+
+
 switch(Selec_Index)
-	{
+	{//153
 		case 0:
 		draw_sprite(spr_fight, 1, 32, 432)
 		draw_sprite(spr_act, 0, 185, 432)
-		draw_sprite(spr_item, 0, 338, 432)
-		draw_sprite(spr_mercy, 0, 491, 432)
+		draw_sprite(spr_item, 0, 345, 432)
+		draw_sprite(spr_mercy, 0, 500, 432)
 		break
 		case 1:
 		draw_sprite(spr_fight, 0, 32, 432)
 		draw_sprite(spr_act, 1, 185, 432)
-		draw_sprite(spr_item, 0, 338, 432)
-		draw_sprite(spr_mercy, 0, 491, 432)
+		draw_sprite(spr_item, 0, 345, 432)
+		draw_sprite(spr_mercy, 0, 500, 432)
 		break
 		case 2:
 		draw_sprite(spr_fight, 0, 32, 432)
 		draw_sprite(spr_act, 0, 185, 432)
-		draw_sprite(spr_item, 1, 338, 432)
-		draw_sprite(spr_mercy, 0, 491, 432)
+		draw_sprite(spr_item, 1, 345, 432)
+		draw_sprite(spr_mercy, 0, 500, 432)
 		break
 		case 3:
 		draw_sprite(spr_fight, 0, 32, 432)
 		draw_sprite(spr_act, 0, 185, 432)
-		draw_sprite(spr_item, 0, 338, 432)
-		draw_sprite(spr_mercy, 1, 491, 432)
+		draw_sprite(spr_item, 0, 345, 432)
+		draw_sprite(spr_mercy, 1, 500, 432)
 		break
 	}
 if State = State_Selec
 {
+draw_set_color(c_white);
+draw_rectangle(32, 250, 607, 390, false);
+
+draw_set_color(c_black);
+draw_rectangle(32 + 5, 250 + 5, 607 - 5, 390 - 5, false);
+	
 draw_set_font(Font1);
 if(string_length(Dialog) > Current_Char)
 {
@@ -96,6 +112,7 @@ draw_sprite(spr_debug_pixel,0,319,319.5);
 
 if State = State_Act_Select
 {
+	
 
 	var enemy = Enemy_Count[Enemy_select_Index];
 	array_foreach(enemy.act_actions,function(act, _index) // Loops through each enemy

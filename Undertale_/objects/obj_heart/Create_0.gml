@@ -62,11 +62,11 @@ State_Selec = function()
 		y = 446
 		break
 		case 2:
-		x = 346
+		x = 353
 		y = 446
 		break
 		case 3:
-		x = 499
+		x = 508
 		y = 446
 		break
 	}

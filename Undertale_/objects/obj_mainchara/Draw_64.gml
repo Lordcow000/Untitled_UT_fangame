@@ -1,5 +1,7 @@
 if (State = State_Menu)
 {
+	show_debug_message("Ahh");
+	draw_set_colour(c_white);
 	draw_rectangle_colour(16, 154, 192, 336, c_white, c_white, c_white, c_white, false)
 	draw_rectangle_colour(22, 160, 186, 330, c_black, c_black, c_black, c_black, false)
 	draw_set_font(Font1)
@@ -21,6 +23,7 @@ if (State = State_Menu)
 }
 	if State = State_Stat
 	{
+
 		draw_rectangle_colour(16, 154, 192, 336, c_white, c_white, c_white, c_white, false)
 		draw_rectangle_colour(22, 160, 186, 330, c_black, c_black, c_black, c_black, false)
 		draw_set_font(Font1)
