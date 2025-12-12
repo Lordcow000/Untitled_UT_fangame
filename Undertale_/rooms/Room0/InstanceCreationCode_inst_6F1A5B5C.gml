@@ -8,19 +8,22 @@ Dialog_List = [];
 
 Dialog = 
 {
-Text: "* OMG this looks beautiful"
+Text: "* OMG this looks beautiful",
+Portrait: spr_60x60,
 //more stuff will be added like talking sprites
 }
 array_push(Dialog_List, Dialog);
 Dialog = 
 {
-Text: "* Stay on the path. This text is really long like really really really long"
+Text: "* Stay on the path. This text is really long like really",
+Portrait: Ralsei_port_happy,
 //more stuff will be added like talking sprites
 }
 array_push(Dialog_List, Dialog);
 Dialog = 
 {
-Text: "* It was also made in Gamemaker"
+Text: "* It was also made in Gamemaker",
+Portrait: Ralsei_port_happy,
 //more stuff will be added like talking sprites
 }
 array_push(Dialog_List, Dialog);

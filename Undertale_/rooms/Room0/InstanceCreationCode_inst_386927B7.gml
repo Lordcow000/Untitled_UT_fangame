@@ -5,21 +5,26 @@ image_blend = c_red;
 
 Dialog_List[0] = 
 {
-	Text:"* HEHEHEHEHA"
+	Text:"* HEHEHEHEHA HEHEHEHEHA HEHEHEHEHA HEHEHEHEHA HEHEHEHEHA HEHEHEHEHA HEHEHEHEHA HEHEHEHEHA",
+	Portrait: Ralsei_port_happy,
+	
 }
 
 Dialog_List[1] = 
 {
-	Text:"* :3"
+	Text:"* :3",
+	Portrait: Ralsei_port_blush,
 }
 
 Dialog_List[2] = 
 {
-	Text:"* I love Femtanyl"
+	Text:"* I love Femtanyl",
+	Portrait: Ralsei_port_normal
 }
 
 Dialog_List[3] = 
 {
-	Text:"* And Stomach Book"
+	Text:"* And Stomach Book",
+	Portrait: Ralsei_port_blush,
 }
 

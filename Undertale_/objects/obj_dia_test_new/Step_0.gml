@@ -36,9 +36,20 @@ if (keyboard_check_pressed(ord("Z")) and char_current >= _len)
 		
 	else
 	{
+		var Dialouge_port = Dialog_List[text_current].Portrait;
+		if (Dialouge_port != noone) 
+		{
+			Portrait = true;
+			Dialog_List[text_current].Text = string_wrap(Dialog_List[text_current].Text, text_width - (sprite_get_width(Dialouge_port) + 15));
 
-		Dialog_List[text_current].Text = string_wrap(Dialog_List[text_current].Text, text_width);
+		}
+		
+		else {Portrait = false;}
+
+		
 		char_current = 0;
+		
+		
 	}
 	    
     }
