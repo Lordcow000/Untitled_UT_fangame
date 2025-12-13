@@ -6,7 +6,6 @@ image_blend = c_red;
 Dialog_List[0] = 
 {
 	Text:"* HEHEHEHEHA HEHEHEHEHA HEHEHEHEHA HEHEHEHEHA HEHEHEHEHA HEHEHEHEHA HEHEHEHEHA HEHEHEHEHA",
-	Portrait: Ralsei_port_happy,
 	
 }
 

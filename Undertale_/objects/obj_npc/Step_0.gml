@@ -11,9 +11,10 @@ with(_dialog)
 {
 Dialog_List = other.Dialog_List;
 Dialog_List[0].Text = string_wrap(Dialog_List[0].Text, text_width);
-var Dialouge_port = Dialog_List[text_current].Portrait;
-if (Dialouge_port != noone) 
+
+if (variable_struct_exists(Dialog_List[text_current],"Portrait")) 
 	{
+		var Dialouge_port = Dialog_List[text_current].Portrait;
 		Portrait = true;
 		Dialog_List[text_current].Text = string_wrap(Dialog_List[text_current].Text, text_width - (sprite_get_width(Dialouge_port) + 15));
 

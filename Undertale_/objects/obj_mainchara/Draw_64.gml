@@ -63,9 +63,9 @@ if (State = State_Inventory)
 	//Thanks - Migo
 	for(var i = 0; i < array_length(global.Game_Data.Inventory_1); i ++)
 	{
-	draw_text_transformed(250, 120 + 30 * i, global.Game_Data.Inventory_1[i].Display_Name, 2, 2, 0)
+	draw_text_transformed(250, 120 + 30 * i, Fetch_item(global.Game_Data.Inventory_1[i]).display_name, 2, 2, 0)
 	}
-	draw_text_transformed(250, 120, global.Game_Data.Inventory_1[0].Display_Name, 2, 2, 0)
+	draw_text_transformed(250, 120, Fetch_item(global.Game_Data.Inventory_1[0]).display_name, 2, 2, 0)
 	
 	draw_sprite(spr_heart, 0, 214, 130 + 30 * Inventory_Index);
 
@@ -91,9 +91,9 @@ if (State = State_Inventory_2)
 	//Thanks - Migo
 	for(var i = 0; i < array_length(global.Game_Data.Inventory_1); i ++)
 	{
-	draw_text_transformed(250, 120 + 30 * i, global.Game_Data.Inventory_1[i].Display_Name, 2, 2, 0)
+	draw_text_transformed(250, 120 + 30 * i, Fetch_item(global.Game_Data.Inventory_1[i]).display_name, 2, 2, 0)
 	}
-	draw_text_transformed(250, 120, global.Game_Data.Inventory_1[0].Display_Name, 2, 2, 0)
+	draw_text_transformed(250, 120, Fetch_item(global.Game_Data.Inventory_1[0]).display_name, 2, 2, 0)
 	
 	draw_sprite(spr_heart, 0, 211 + 100 * Item_Action_Index, 360);
 }

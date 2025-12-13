@@ -8,6 +8,7 @@
 
 function string_wrap(_text, _width)
 {
+_width -= 20;
 var _text_wrapped = "";
 var _space = -1;
 var _char_pos = 1;

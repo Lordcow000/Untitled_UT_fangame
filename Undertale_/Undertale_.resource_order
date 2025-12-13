@@ -26,6 +26,8 @@
     {"name":"zold_dialogue_DONT_USE","order":2,"path":"objects/zold_dialogue_DONT_USE/zold_dialogue_DONT_USE.yy",},
     {"name":"encounter_room","order":1,"path":"rooms/encounter_room/encounter_room.yy",},
     {"name":"Room3","order":2,"path":"rooms/Room3/Room3.yy",},
+    {"name":"Fetch_item","order":5,"path":"scripts/Fetch_item/Fetch_item.yy",},
+    {"name":"Items","order":4,"path":"scripts/Items/Items.yy",},
     {"name":"main_data","order":1,"path":"scripts/main_data/main_data.yy",},
     {"name":"Script4","order":3,"path":"scripts/Script4/Script4.yy",},
     {"name":"string_wrap","order":2,"path":"scripts/string_wrap/string_wrap.yy",},

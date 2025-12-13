@@ -41,36 +41,31 @@ State_Battle = function()
 
 }
 
-Item = 
-{
-Display_Name: "Lime",
-Name: "Lime",
-Type: "Food",
-Value: 10,
-Description: "A green fruit, really sour. Heals 10 HP."
-}
 
-array_push(global.Game_Data.Inventory_1, Item);
-Item = 
-{
-Display_Name: "Lemon",
-Name: "Lemon",
-Type: "Food",
-Value: 20,
-Description: "A yellow fruit, really REALLY sour. Heals 10 HP."
-}
+array_push(global.Game_Data.Inventory_1, ItemID.Lime);
+array_push(global.Game_Data.Inventory_1, ItemID.Lemon);
+array_push(global.Game_Data.Inventory_1, ItemID.Lemon_Lime_Bitters);
 
-array_push(global.Game_Data.Inventory_1, Item);
-Item = 
-{
-Display_Name: "Limon Bitt",
-Name: "Lemon Lime Bitters",
-Type: "Food",
-Value: 100,
-Description: "The best drink. Heals 100 HP!"
-}
 
-array_push(global.Game_Data.Inventory_1, Item);
+//Item = 
+//{
+//Display_Name: "Lemon",
+//Name: "Lemon",
+//Type: "Food",
+//Value: 20,
+//Description: "A yellow fruit, really REALLY sour. Heals 10 HP."
+//}
+
+//array_push(global.Game_Data.Inventory_1, Item);
+//Item = 
+//{
+//Display_Name: "Limon Bitt",
+//Name: "Lemon Lime Bitters",
+//Type: "Food",
+//Value: 100,
+//Description: "The best drink. Heals 100 HP!"
+//}
+
 MenuSelect = ["Item", "Stats", "Cellphone"]
 
 State_Stat = function()
@@ -148,36 +143,35 @@ if(Select)
 {
 if(Item_Actions[Item_Action_Index] = "INFO")
 {
-var _dialog = instance_create_layer(x, y, "Instances", zold_dialogue_DONT_USE);
+var _dialog = instance_create_layer(x, y, "Instances", obj_dia_test_new);
+
+//Text: global.Game_Data.Inventory_1[other.Inventory_Index].Description
+Dialog_List[0] = Fetch_item(global.Game_Data.Inventory_1[Inventory_Index]).desc
 with(_dialog)
 {
-Dialog_List = [];
-Dialog = 
-{
-Text: global.Game_Data.Inventory_1[other.Inventory_Index].Description
-//more stuff will be added like talking sprites
+Dialog_List = other.Dialog_List;
+Dialog_List[0].Text = string_wrap(Dialog_List[0].Text, text_width);
 }
-array_push(Dialog_List, Dialog);
-}
+
 State = State_Talking;
 show_debug_message(Item_Action_Index);
 }
+
 }
 
 if(Select)
 {
 if(Item_Actions[Item_Action_Index] = "DROP")
 {
-var _dialog = instance_create_layer(x, y, "Instances", zold_dialogue_DONT_USE);
+var _dialog = instance_create_layer(x, y, "Instances", obj_dia_test_new);
+Dialog_List[0] = {Text:"* The " +  Fetch_item(global.Game_Data.Inventory_1[Inventory_Index]).name+ " was thrown away."}
 with(_dialog)
 {
-Dialog_List = [];
-Dialog = 
-{
-Text: "The " + global.Game_Data.Inventory_1[other.Inventory_Index].Name + " was thrown away."
-//more stuff will be added like talking sprites
-}
-array_push(Dialog_List, Dialog);
+	Dialog_List = other.Dialog_List;
+	Dialog_List[0].Text = string_wrap(Dialog_List[0].Text, text_width);
+
+
+
 }
 State = State_Talking;
 show_debug_message(Item_Action_Index);
