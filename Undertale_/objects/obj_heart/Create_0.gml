@@ -1,5 +1,3 @@
-HPMAX = global.MaxHealth
-HP = global.Health
 items = global.Game_Data.Inventory_1
 DEF = global.Defense + global.ArmorEquipped.Defense
 ATK = global.Attack + global.WeaponEquipped.Attack
@@ -236,10 +234,10 @@ enemy.spareable = true;
 }
 	if(Act_Value.ID = "Sans_Argue")
 {
-Dialog = string_hash_to_newline("You argue with Sans,#yelling at him for 'befriending' your#mother last night.");
+Dialog = string_hash_to_newline("You argue with Sans,#yelling at him for 'befriending'#your mother last night.");
 Current_Char = 0;
 enemy.dialog_next = "Human, I remember I'm you're dad.";
-enemy.spareable = false;
+enemy.ATK = 2;
 }
 if(Act_Value.ID = "Sans_Instakill")
 {
@@ -248,7 +246,6 @@ if(Act_Value.ID = "Sans_Instakill")
 	enemy.dialog_next = "Oof i'm ded (this message is not supposed to be here)";
 	enemy._health = 0;
 }
-	
 		//Nothing yet
 	}
 	if(_x)
@@ -361,6 +358,10 @@ State_Enemy_Attack = function()
 	var Speed = 2;
 	var xDirection = keyboard_check(vk_right) - keyboard_check(vk_left);
 	var yDirection = keyboard_check(vk_down) - keyboard_check(vk_up);
+	if keyboard_check(vk_shift) or keyboard_check(ord("X"))
+	{
+		Speed = 1
+	}
 	
 	xSpeed = xDirection * Speed;
 	ySpeed = yDirection * Speed;
@@ -378,6 +379,7 @@ State_Enemy_Attack = function()
 	x += xSpeed;
 	y += ySpeed;
 	show_debug_message(global.Health);
+	started = false
 }
 
 State = State_Selec

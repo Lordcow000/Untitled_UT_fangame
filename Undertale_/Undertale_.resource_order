@@ -2,8 +2,8 @@
   "FolderOrderSettings":[
     {"name":"Fonts","order":4,"path":"folders/Fonts.yy",},
     {"name":"Objects","order":1,"path":"folders/Objects.yy",},
-    {"name":"Bullets","order":15,"path":"folders/Objects/Bullets.yy",},
     {"name":"Borders","order":21,"path":"folders/Objects/Borders.yy",},
+    {"name":"Bullets","order":15,"path":"folders/Objects/Bullets.yy",},
     {"name":"Scripts","order":2,"path":"folders/Scripts.yy",},
     {"name":"Sprites","order":3,"path":"folders/Sprites.yy",},
     {"name":"Battle","order":9,"path":"folders/Sprites/Battle.yy",},
