@@ -52,6 +52,10 @@ if (x == global.idealborder[0] || global.idealborder[2] > (y + (image_yscale * 5
     }
 }
 
-y = obj_border_down.y;
-image_yscale = (obj_border_up.y - obj_border_down.y) / 5;
+if(global.instantborder)
+{
+	image_yscale = size;
+	x = global.idealborder[0];
+	y = global.idealborder[3];
+}
 

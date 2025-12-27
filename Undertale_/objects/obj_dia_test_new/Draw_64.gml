@@ -17,11 +17,45 @@ if(!array_length(Dialog_List) <= text_current)
 {
  
 
-var _len = string_length(Dialog_List[text_current]);
-if (char_current < _len)
+var _len = string_length(Dialog_List[text_current])
+var current_char = string_copy(Dialog_List[text_current].Text,char_current,1);
+var next_char = string_copy(Dialog_List[text_current].Text,char_current+1,1);
+var next_char_2 = string_copy(Dialog_List[text_current].Text,char_current+2,1);
+var next_char_3 = string_copy(Dialog_List[text_current].Text,char_current+3,1);
+
+if (array_contains(pauses,current_char) && !waited)
+{
+	waited = true;
+	paused = true;
+	alarm[0] = 10;
+}
+
+if (next_char == "/")
+{
+	switch next_char_2
+	{
+		case "W":
+		if(!waited_custom)
+		{
+			waited_custom = true;
+			paused = true;
+			alarm[0] = real(next_char_3)*60;
+			Dialog_List[text_current].Text = string_delete(Dialog_List[text_current].Text,char_current+1,3);
+		}
+		
+		
+		
+	}
+	
+}
+
+if (char_current < _len && !paused)
     {
+	waited = false;
+	waited_custom = false;
     char_current += char_speed;
     }
+
 if (Portrait != true)
 {
 	

@@ -14,8 +14,19 @@ Mercy_Select = ["Spare", "Flee"];
 started = false;
 image_speed = 0;
 
+global.instantborder = true;
+global.idealborder[0] = 32;
+global.idealborder[1] = 602;
+global.idealborder[2] = 250;
+global.idealborder[3] = 385;
+
 State_Selec = function()
 {
+	global.idealborder[0] = 32;
+	global.idealborder[1] = 602;
+	global.idealborder[2] = 250;
+	global.idealborder[3] = 385;
+	global.instantborder = false  ;
 	var right = keyboard_check_pressed(vk_right)
 	var left = keyboard_check_pressed(vk_left)
 	if(right)
@@ -316,21 +327,21 @@ room_goto(global.Game_Data.Previ_Room);
 
 State_Enemy_Attack_Start = function()
 {
-	if (started == false){
+		randomise();
 		var enemy = Enemy_Count[0];
-		var battle_box = enemy.Attacks[0].BattleBoxSize;
+		var attack_num = irandom(array_length(enemy.Attacks)-1);
+		var battle_box = enemy.Attacks[attack_num].BattleBoxSize;
 		new_border(battle_box.Left,battle_box.Right,battle_box.Up,battle_box.Down);
-		enemy.Attacks[0].pattern();
+		enemy.Attacks[attack_num].pattern();
 		started = true;
 		_x = (battle_box.Right + battle_box.Left)/2-8;
 		_y = (battle_box.Up + battle_box.Down)/2-8;
 		x = _x;
 		y = _y;
 		global.invincible = 0;
-		global.TurnTimer = enemy.Attacks[0].Duration*60
+		global.TurnTimer = enemy.Attacks[attack_num].Duration*60
 		State = State_Enemy_Attack;
 
-	}
 }
 
 State_Enemy_Attack = function()
@@ -338,10 +349,8 @@ State_Enemy_Attack = function()
 	global.TurnTimer --;
 	if (global.TurnTimer <=0)
 	{
-		global.idealborder[0] = 32;
-		global.idealborder[1] = 602;
-		global.idealborder[2] = 250;
-		global.idealborder[3] = 385;
+		obj_bullet_parent.alarm[11] = 1;
+		global.invincible = 0;
 		State = State_Selec;
 		
 	}

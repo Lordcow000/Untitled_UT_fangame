@@ -15,3 +15,13 @@ Portrait = false;
 
 Player_Next_State = obj_mainchara.State_Overworld;
 
+waited = false;
+waited_custom = false;
+paused = false;
+
+pauses = 
+[
+	".",
+	"?",
+	"!",
+];

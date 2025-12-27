@@ -35,3 +35,10 @@ if (image_xscale != size)
         image_xscale += 6;
 }
 
+if(global.instantborder)
+{
+	image_xscale = size;
+	x = global.idealborder[0];
+	y = global.idealborder[2];
+}
+

@@ -1,7 +1,7 @@
 test_enemy =
 {
-	obj: obj_test_enemy,
-	name: "Not Sans",
+	obj: obj_LORDCOW,
+	name: "LORDCOW",
 	_health: 1000,
 	def: 0,
 	spareable: false,
@@ -18,21 +18,13 @@ test_enemy =
 		BattleBoxSize: {Left: 237, Right: 397,Up: 250, Down: 385},
 		pattern: function()
 		{
-			obj_test_enemy.alarm[0] = 30;			
+			obj_LORDCOW.alarm[0] = 30;			
 		}
 	},
-	{
-		Name: "Bones",
-		Duration: 10,
-		BattleBoxSize: {Left: 237, Right: 397,Up: 250, Down: 385},
-		pattern: function()
-		{
-			obj_test_enemy.alarm[1] = 30;			
-		}
-	}
 	]
 }
-array_push(obj_heart.Enemy_Count, test_enemy)
+
+array_push(obj_heart.Enemy_Count, test_enemy);
 
 
 
